@@ -12,7 +12,7 @@ import re
 
 app = Flask(__name__)
 
-from werkzeug.contrib.cache import SimpleCache
+from cachelib import SimpleCache
 cache = SimpleCache()
 
 # URL templates fuer den Scraper

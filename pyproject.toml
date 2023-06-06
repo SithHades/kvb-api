@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "kvb-api"
+version = "0.1.0"
+description = ""
+authors = ["SithHades <l.knaack93@gmail.com>"]
+readme = "README.md"
+packages = [{include = "kvb_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+beautifulsoup4 = "^4.12.2"
+requests = "^2.31.0"
+flask = "^2.3.2"
+cachelib = "^0.10.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
