@@ -49,6 +49,7 @@ def get_stations():
     Ruft Liste aller Stationen ab und gibt
     Dict mit ID als Schlüssel und Name als Wert aus.
     """
+    app.logger.info("get stations")
     url = "https://www.kvb.koeln/haltestellen/overview/"
     r = requests.get(url, headers=HEADERS)
     soup = BeautifulSoup(r.text)
@@ -222,10 +223,16 @@ def add_cors(resp):
         resp.headers['Access-Control-Max-Age'] = '1'
     return resp
 
+stations = get_stations()
+stations_reverse = {}
+for sid in stations.keys():
+    stations_reverse[stations[sid]] = sid
+
 if __name__ == "__main__":
-    stations = get_stations()
-    stations_reverse = {}
-    for sid in stations.keys():
-        stations_reverse[stations[sid]] = sid
+    # stations = get_stations()
+    # stations_reverse = {}
+    # for sid in stations.keys():
+    #     stations_reverse[stations[sid]] = sid
     app.config["DEBUG"] = True
+    app.logger.info("Start app")
     app.run()
